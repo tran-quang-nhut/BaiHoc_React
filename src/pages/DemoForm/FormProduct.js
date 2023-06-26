@@ -90,9 +90,9 @@ export default class FormProduct extends Component {
         // check validation : check người dùng không bị lỗi, cụ thể các thuộc tính trong error của state sẽ là chuỗi rỗng
         let valid = false;
         // dùng vòng lặp
-        for (let item in this.state.errors) {
+        for (let item in newError) {
           // ở đây check nếu thuộc tính trong error mà có chuỗi hoặc các input chưa có dữ liệu thì sẽ set valid = true
-          if (this.state.errors[item] !== "" || this.state.values == "") {
+          if (this.state.errors[item] !== "" || this.state.values[item] == "") {
             valid = true;
           }
         }
