@@ -8,7 +8,9 @@ import Home from './Templates/Home';
 import Carousel from './pages/Carousel';
 import Page404 from './pages/Page404';
 import Admin from './Templates/Admin';
-import Dasboard from './pages/DashBoard';
+import DashBoard from './pages/DashBoard';
+import ItemDetail from './pages/ItemDetail';
+import ProductList from './pages/DemoForm/ProductList';
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,19 +22,22 @@ export default function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/detail" element={<Detail />} /> */}
-        <Route path="/home" element={<Home />}>
+        <Route path="" element={<Home />}>
           <Route index element={<Carousel />} />
           <Route path="login" element={<Login />} />
           <Route path="detail" element={<Detail />}>
-            <Route path=":id" element={<Detail />} />
+            <Route path=":id" element={<ItemDetail />} />
           </Route>
+          {/* <Route path="detail/:id" element={<Detail />} /> */}
+          <Route path="form" element={<ProductList />} />
           {/* <Route path="page-not-found" element={<Page404 />} /> */}
-          {/* sử dụng path="*" giúp đưa người dùng tới trang mình muốn khi các đường dẫn đó không nằm trong các router đã định nghĩa */}
-          <Route path='*' element={<Page404 />} />
+          {/* sử dụng path="*" giúp đưa người dùng tới trang mình muốn khi các đường dẫn đó không nằm trong các Route đã định nghĩa  */}
+          <Route path="*" element={<Page404 />} />
+          {/* // trang 404  */}
         </Route>
-        <Route path="/admin" element={<Admin />} >
-          <Route index element={<Dasboard />}></Route>
-        </Route>    
+        <Route path="/admin" element={<Admin />}>
+          <Route index element={<DashBoard />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
